@@ -1,22 +1,23 @@
-  let clicked = false;
+let clicked = false;
 
-  function handleResponse(answer) {
+function handleResponse(answer) {
   if (clicked) return;
   clicked = true;
 
   const question = document.querySelector('p');
-  const buttonsDiv = document.querySelector('div div'); // selects the inner button container
+  const buttonsDiv = question.nextElementSibling; // grabs the buttons div right after <p>
 
   // Clear old buttons
   buttonsDiv.innerHTML = '';
 
-  // Change text + show new options
+  // Change text based on answer
   if (answer === 'Yes') {
-    question.innerText = "Yay,get ready for a date soon!";
+    question.innerText = "Yay, get ready for a date soon!";
   } else {
     question.innerText = "Oof. No worries.";
   }
 
+  // Send to backend
   fetch('https://your-backend-api.com/send', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -25,4 +26,3 @@
   .then(res => console.log('Initial response sent!'))
   .catch(err => console.error('Error:', err));
 }
-
