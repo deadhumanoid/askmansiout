@@ -18,7 +18,7 @@ function handleResponse(answer) {
   }
 
   // Send to backend
-  fetch('https://formsubmit.co/your@email.com', {
+  fetch('<form action="https://formsubmit.co/thenividjoshi@gmail.com" method="POST" />', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({ response: answer })
