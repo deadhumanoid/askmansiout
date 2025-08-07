@@ -18,11 +18,12 @@ function handleResponse(answer) {
   }
 
   // Send to backend
-  fetch('https://your-backend-api.com/send', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ response: answer })
-  })
+  fetch('https://formsubmit.co/your@email.com', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ response: answer })
+})
+
   .then(res => console.log('Initial response sent!'))
   .catch(err => console.error('Error:', err));
 }
