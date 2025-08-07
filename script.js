@@ -5,25 +5,19 @@ function handleResponse(answer) {
   clicked = true;
 
   const question = document.querySelector('p');
-  const buttonsDiv = question.nextElementSibling; // grabs the buttons div right after <p>
+  const buttonsDiv = question.nextElementSibling;
 
-  // Clear old buttons
+  // Clear the buttons
   buttonsDiv.innerHTML = '';
 
-  // Change text based on answer
+  // Update question text
   if (answer === 'Yes') {
     question.innerText = "Yay, get ready for a date soon!";
   } else {
     question.innerText = "Oof. No worries.";
   }
 
-  // Send to backend
-  fetch('<form action="https://formsubmit.co/thenividjoshi@gmail.com" method="POST" />', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ response: answer })
-})
-
-  .then(res => console.log('Initial response sent!'))
-  .catch(err => console.error('Error:', err));
+  // Submit answer to FormSubmit
+  document.getElementById('answer-input').value = answer;
+  document.getElementById('response-form').submit();
 }
